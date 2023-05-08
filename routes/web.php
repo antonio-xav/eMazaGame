@@ -3,6 +3,7 @@
 use App\Http\Controllers\GenericController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[GenericController::class,'landing']);
 
+Route::get('/generate-token',[GenericController::class,'generateToken']);
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    Route::post('/oauth-access-tokens',[GebericController::class, 'generateToken'])->name('voyager.oauth-access-token');
 });
