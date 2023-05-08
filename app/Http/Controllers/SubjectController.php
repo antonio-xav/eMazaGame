@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Traits\HelperTrait;
 use Illuminate\Http\Request;
-use Laravel\Passport\HasApiTokens;
+
 
 use App\Models\Subject;
 

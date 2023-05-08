@@ -11,7 +11,8 @@ class QuestionController extends Controller
 
 {
     use HelperTrait;
-    public function index(Request $request){
+
+    public function index (Request $request){
         return $this->processQuestions($request);
     }
 
