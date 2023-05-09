@@ -25,7 +25,5 @@ Route::group(['prefix' => 'admin'], function () {
 
    Voyager::routes();
 
-
-
-// Route::post('/oauth-access-tokens',[GebericController::class, 'generateToken'])->name('voyager.oauth-access-token');
+Route::post('/oauth-access-tokens',[GenericController::class, 'generateToken'])->name('voyager.oauth-access-tokens.store');
 });

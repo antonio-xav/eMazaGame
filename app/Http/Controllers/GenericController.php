@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+//use view\displayTokens;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Laravel\Passport\HasApiTokens;
+//use Laravel\Passport\HasApiTokens;
 
 
 class GenericController extends Controller
@@ -16,15 +17,19 @@ class GenericController extends Controller
 
     public function generateToken(Request $request){
 
+       // dd('generateToken', $request->all());
+
        if(auth()->user()->hasRole('admin')){
 
         $user = User::find(auth()->id());
 
 
+        $tokenName = $request->name? $request->name:$user->name.'\'s Token';
 
-        $token = $user->createToken($user->name.'\'s Token')->accessToken;
+        $token = $user->createToken($tokenName)->accessToken; //criacao do token
 
-        dd($token);
+       return view('displayTokens', compact('token'));
+    //    return redirect()->to('/admin/oauth-access-tokens')->with(['token'=>$token]);
      }else{
         //TODO: erro que indica que o user não tem permissao para gerar o token'
 

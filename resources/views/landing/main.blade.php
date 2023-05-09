@@ -7,7 +7,7 @@
                     <p class="hero-paragraph">Este servidor processa todas informações utilizadas no aplicativo eMazaGame. Somente usuarios permitidos tem acesso a area restrita deste servidor.</p>
                     <div class="hero-cta"><a class="button button-primary" href="https://play.google.com/store/apps/details?id=explicador.co.mz" target="_blank">BAIXAR APP</a>
                     @if(auth()->check())
-                    <a class="button" href="/admin">ENTRAR</a>
+                    <a class="button" href="/admin/profile">Perfil</a>
                     @else
                     <a class="button" href="/admin">ENTRAR</a>
                     @endif
