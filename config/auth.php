@@ -40,11 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
+        // Atenticação da API usando o Laravel Passport.
         'api' =>[
-            'driver' => 'passport',
-            'provider' => 'users',
-            'hash' => false,
+            'driver' => 'passport', //autenticar solicitações de API usando tokens de acesso
+            'provider' => 'users',  //provedor de autenticação
+            'hash' => true, //hasheamento da senha do usuario logado
         ]
     ],
 

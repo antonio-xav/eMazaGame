@@ -35,24 +35,51 @@ apiResources define todos metodos necessarios para todas operacoes do CRUD.
 
 // // Route::get('/questions', [QuestionController::class, 'getData']);
 // });
-
-Route::group(['middleware' => 'auth:api'], function () {
+Route::middleware('auth:api')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
 
     Route::apiResources([
-        'subjects'=> SubjectController::class,
-        'questions'=>QuestionController::class,
+        //registro automatico das rotas de recursos
+        'subjects'=> SubjectController::class, // operações CRUD em relação aos "Disciplinas" serão direcionadas para o controlador "SubjectController"
+        'questions'=>QuestionController::class,  // operações CRUD em relação aos "Perguntas" serão direcionadas para o controlador "QuestionController"
     ]);
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::group(['middleware' => 'auth:api'], function () {
+//     Route::get('/user', function (Request $request) {
+//         return $request->user();
+//     });
+
+//     Route::apiResources([
+//         //registro automatico das rotas de recursos
+//         'subjects'=> SubjectController::class, // operações CRUD em relação aos "Disciplinas" serão direcionadas para o controlador "SubjectController"
+//         'questions'=>QuestionController::class,  // operações CRUD em relação aos "Perguntas" serão direcionadas para o controlador "QuestionController"
+//     ]);
+// });
+
+
 // Route::middleware('auth')->group( function (Request $request) {
 //     Route::resource('subjects', SubjectController::class);
-
-
-
 
 
 // });

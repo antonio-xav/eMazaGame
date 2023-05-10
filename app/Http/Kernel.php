@@ -40,10 +40,11 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            'throttle:60,1',
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            'throttle:60,1', //  limite definido da taxa de 1 solicitação a cada 60 segundos.
+
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
         ],
     ];
