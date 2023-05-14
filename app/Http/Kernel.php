@@ -40,11 +40,12 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            //Classe de middleware do Laravel que será responsável por iniciar a sessão do usuário que esta logado no aplicativo
             \Illuminate\Session\Middleware\StartSession::class,
+            //Middleware, para a substituição automática de parâmetros de rota por modelos nas rotas e controladores
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:60,1', //  limite definido da taxa de 1 solicitação a cada 60 segundos.
-
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
         ],
     ];
